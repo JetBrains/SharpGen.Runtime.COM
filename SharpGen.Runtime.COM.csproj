@@ -8,6 +8,7 @@
     <SharpGenGenerateDoc>true</SharpGenGenerateDoc>
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
+    <SharpGenGeneratedCodeFolder>Generated</SharpGenGeneratedCodeFolder>
     <SnPath>C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.7.2 Tools\sn.exe</SnPath>
   </PropertyGroup>
 
