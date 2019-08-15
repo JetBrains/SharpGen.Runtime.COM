@@ -27,18 +27,7 @@ namespace SharpGen.Runtime
     /// </summary>
     [Shadow(typeof(ComObjectShadow))]
     [ExcludeFromTypeList]
-    public partial interface IUnknown
+    public partial interface IUnknown : IQueryInterfaceManaged
     {
-        /// <summary>
-        /// Increments the reference count for an interface on this instance.
-        /// </summary>
-        /// <returns>The method returns the new reference count.</returns>
-        uint AddRef();
-
-        /// <summary>
-        /// Decrements the reference count for an interface on this instance.
-        /// </summary>
-        /// <returns>The method returns the new reference count.</returns>
-        uint Release();
     }
 }

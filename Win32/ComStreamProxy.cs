@@ -25,10 +25,10 @@ using System.Runtime.InteropServices;
 namespace SharpGen.Runtime.Win32
 {
     [Guid("0000000c-0000-0000-C000-000000000046")]
-    public class ComStreamProxy : CallbackBase, IStream
+    public class ComStreamProxy : ComCallbackBase, IStream
     {
         private Stream sourceStream;
-        byte[] tempBuffer = new byte[0x1000];
+        readonly byte[] tempBuffer = new byte[0x1000];
 
         public ComStreamProxy(Stream sourceStream)
         {

@@ -7,15 +7,15 @@ namespace SharpGen.Runtime
     public static class ComMarshallingHelpers
     {
         /// <summary>
-        /// Instantiate a CppObject from a native pointer.
+        /// Instantiate a ComObject from a native pointer.
         /// </summary>
-        /// <typeparam name="T">The CppObject class that will be returned</typeparam>
-        /// <param name="cppObjectPtr">The native pointer to a com object.</param>
+        /// <typeparam name="T">The ComObject class that will be returned</typeparam>
+        /// <param name="comObjectPtr">The native pointer to a com object.</param>
         /// <returns>An instance of T binded to the native pointer</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static T FromPointer<T>(IntPtr cppObjectPtr) where T : CppObject
+        public static T FromPointer<T>(IntPtr comObjectPtr) where T : class, IUnknown
         {
-            return MarshallingHelpers.FromPointer<T>(cppObjectPtr);
+            return (comObjectPtr == IntPtr.Zero) ? null : (T) Activator.CreateInstance(typeof (T), comObjectPtr);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

@@ -69,12 +69,12 @@ namespace SharpGen.Runtime
         /// <msdn-id>ms682521</msdn-id>
         /// <unmanaged>IUnknown::QueryInterface</unmanaged>	
         /// <unmanaged-short>IUnknown::QueryInterface</unmanaged-short>
-        public virtual T QueryInterface<T>() where T : ComObject
+        public virtual T QueryInterface<T>() where T : class, IUnknown
         {
             IntPtr parentPtr;
             var result = this.QueryInterface(typeof(T).GetTypeInfo().GUID, out parentPtr);
             result.CheckError();
-            return MarshallingHelpers.FromPointer<T>(parentPtr);
+            return ComMarshallingHelpers.FromPointer<T>(parentPtr);
         }
 
         ///<summary>
@@ -85,7 +85,7 @@ namespace SharpGen.Runtime
         /// <msdn-id>ms682521</msdn-id>
         /// <unmanaged>IUnknown::QueryInterface</unmanaged>	
         /// <unmanaged-short>IUnknown::QueryInterface</unmanaged-short>
-        public virtual T QueryInterfaceOrNull<T>() where T : ComObject
+        public virtual T QueryInterfaceOrNull<T>() where T : class, IUnknown
         {
             return ComMarshallingHelpers.FromPointer<T>(QueryInterfaceOrNull(typeof(T).GetTypeInfo().GUID));
         }
@@ -159,7 +159,7 @@ namespace SharpGen.Runtime
 
         protected bool Equals(ComObject other)
         {
-            return EqualsComObject(this, other);
+            return Equals(this, other);
         }
 
         public override bool Equals(object obj)

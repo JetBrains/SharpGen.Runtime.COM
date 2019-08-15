@@ -29,21 +29,6 @@ namespace SharpGen.Runtime
     /// </summary>
     public class ComObjectShadow : CppObjectShadow
     {
-        private Result QueryInterface(Guid guid, out IntPtr output)
-        {
-            output = Callback.Shadow.Find(guid);
-
-            if (output == IntPtr.Zero)
-            {
-                return Result.NoInterface.Code;
-            }
-
-            ((IUnknown)Callback).AddRef();
-
-            return Result.Ok.Code;
-
-        }
-
         protected override CppObjectVtbl Vtbl { get; } = new ComObjectVtbl(0);
 
         protected class ComObjectVtbl : CppObjectVtbl
@@ -68,8 +53,8 @@ namespace SharpGen.Runtime
             protected unsafe static int QueryInterfaceImpl(IntPtr thisObject, IntPtr guid, out IntPtr output)
             {
                 var shadow = ToShadow<ComObjectShadow>(thisObject);
-
-                return shadow.QueryInterface(*(Guid*)guid, out output).Code;
+                var obj = (IUnknown)shadow.Callback;
+                return obj.QueryInterface(*(Guid*)guid, out output).Code;
             }
 
             protected static uint AddRefImpl(IntPtr thisObject)
