@@ -1,5 +1,6 @@
 <Project>
   <PropertyGroup>
+    <PackageVersion Condition="'$(PackageVersion)' == ''">2.0.20190814.1</PackageVersion>
     <VersionPrefix Condition="'$(APPVEYOR_REPO_TAG_NAME)' != ''">$(APPVEYOR_REPO_TAG_NAME)</VersionPrefix>
     <VersionPrefix Condition="'$(VersionPrefix)' == ''">1.2</VersionPrefix>
     <VersionSuffix Condition="'$(CI)' == ''">local</VersionSuffix>
