@@ -167,7 +167,12 @@ namespace SharpGen.Runtime
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj is ComObject comObject)
-                return (NativePointer == comObject.NativePointer);
+            {
+                if (GetType() == obj.GetType())
+                    return NativePointer == comObject.NativePointer;
+                // here we may have the case of comparing the same object by its different interfaces so we need to QI IUnknown for both interfaces and compare normalized pointers
+                return QueryInterface<ComObject>().NativePointer == comObject.QueryInterface<ComObject>().NativePointer;
+            }
             return false;
         }
 
