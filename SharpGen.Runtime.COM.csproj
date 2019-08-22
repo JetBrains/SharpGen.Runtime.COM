@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net461</TargetFramework>
@@ -16,7 +16,6 @@
     <SharpGenMapping Include="Mapping.xml" />
     <PackageReference Include="System.Memory" Version="4.5.2" />
     <PackageReference Include="SharpGen.Runtime" Version="$(PackageVersion)" />
-    <PackageReference Include="SharpGen.Doc.Msdn.Tasks" Version="1.1.0" PrivateAssets="All" />
     <PackageReference Include="SharpGenTools.Sdk" Version="$(PackageVersion)" PrivateAssets="All" />
   </ItemGroup>
     <ItemGroup>
