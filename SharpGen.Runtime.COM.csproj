@@ -16,7 +16,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net461" Version="1.0.0-preview.2" PrivateAssets="All" />
     <SharpGenMapping Include="Mapping.xml" />
-    <PackageReference Include="System.Memory" Version="4.5.2" />
+    <PackageReference Include="System.Memory" Version="4.5.5" />
     <PackageReference Include="JetBrains.SharpGen.Runtime" Version="$(PackageVersion)" />
     <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
     <PackageReference Include="JetBrains.SharpGenTools.Sdk" Version="$(PackageVersion)" PrivateAssets="All" />
