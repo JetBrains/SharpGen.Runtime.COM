@@ -21,6 +21,7 @@
     <PackageReference Include="JetBrains.SharpGen.Runtime" Version="$(PackageVersion)" />
     <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
     <PackageReference Include="JetBrains.SharpGenTools.Sdk" Version="$(PackageVersion)" PrivateAssets="All" />
+    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.0" PrivateAssets="All" />
   </ItemGroup>
     <ItemGroup>
         <SharpGenGlobalNamespaceOverrides Include="MarshallingHelpers" Override="ComMarshallingHelpers" />
