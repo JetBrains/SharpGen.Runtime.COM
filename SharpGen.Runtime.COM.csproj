@@ -14,6 +14,7 @@
     <PackageReference Include="SharpGen.Runtime" Version="1.2.0" />
     <PackageReference Include="SharpGen.Doc.Msdn.Tasks" Version="1.1.0" PrivateAssets="All" />
     <PackageReference Include="SharpGenTools.Sdk" Version="1.2.0" PrivateAssets="All" />
+    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.0" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
